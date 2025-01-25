@@ -1,6 +1,6 @@
 import { defineStore } from 'pinia'
 
-export const useLanguageStore = defineStore('language', {
+export const useLanguage = defineStore('language', {
     state: () => ({ language: window.navigator.language }),
     actions: {
         changeTo(newLanguage: string) {
