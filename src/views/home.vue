@@ -4,15 +4,16 @@ import Content from '@/components/home/content/index.vue'
 </script>
 
 <template>
-    <ReactiveHeader />
-    <Content />
+    <div id="app-container">
+        <ReactiveHeader />
+        <Content />
+    </div>
 </template>
 
 <style scoped>
-main {
-    width: 100%;
-    min-width: 100%;
-    max-width: 1280px;
-    display: flex;
+#app-container {
+    background-color: var(--black-dark);
+    border-radius: 22px;
+    box-shadow: 0 0 10px 1px var(--black-pure);
 }
 </style>

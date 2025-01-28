@@ -19,9 +19,9 @@ import DynamicText from './dynamic-text.vue'
 <style scoped>
 header {
     width: 100%;
-    background-color: var(--black-dark);
     padding: 16px;
-    border-bottom: 2px solid var(--black-mute);
+    padding-bottom: 22px;
+    border-bottom: 2px solid var(--black);
 }
 
 #top-header {
@@ -57,11 +57,11 @@ h1 {
         border-radius: 22px 22px 0 0;
     }
     h1 {
-        font-size: 5rem;
+        font-size: 3.6rem;
     }
     #line {
-        border-top: 6px solid var(--green-active);
-        top: 1.2rem;
+        border-top: 5px solid var(--green-active);
+        top: 0.9rem;
     }
 }
 </style>

@@ -14,7 +14,6 @@ import 'simplebar-vue/dist/simplebar.min.css'
 .content-wrapper {
     height: calc(100dvh - 130px);
     padding: 1.5rem;
-    background-color: var(--black-dark);
 }
 .simplebar-track {
     margin-bottom: 10px !important;
@@ -28,7 +27,7 @@ import 'simplebar-vue/dist/simplebar.min.css'
 
 @media screen and (min-width: 1024px) {
     .content-wrapper {
-        height: calc(100dvh - 189px - 32px);
+        height: calc(100dvh - 190px);
         border-radius: 0 0 22px 22px;
     }
 }
