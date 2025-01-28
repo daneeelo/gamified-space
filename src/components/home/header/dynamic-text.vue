@@ -41,6 +41,7 @@ onUnmounted(() => {
     display: flex;
     width: 100%;
     font-size: 0.9rem;
+    background-color: var(--black-dark);
 }
 
 #usr {
@@ -64,7 +65,7 @@ onUnmounted(() => {
 
 @media screen and (min-width: 800px) {
     #cli-cmd {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
 }
 @keyframes caretAnimation {

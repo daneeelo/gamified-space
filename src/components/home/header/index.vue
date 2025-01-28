@@ -4,22 +4,30 @@ import DynamicText from './dynamic-text.vue'
 
 <template>
     <header>
-        <h1>
-            dan<span id="cont"><span id="line"></span>eee</span>lo
-        </h1>
-        <LanguageSelector />
+        <div id="top-header">
+            <h1>
+                dan<span id="cont"><span id="line"></span>eee</span>lo
+            </h1>
+            <LanguageSelector />
+        </div>
+        <div id="bottom-header">
+            <DynamicText />
+        </div>
     </header>
-    <DynamicText />
 </template>
 
 <style scoped>
 header {
     width: 100%;
+    background-color: var(--black-dark);
+    padding: 16px;
+    border-bottom: 2px solid var(--black-mute);
+}
+
+#top-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: var(--black-dark);
-    padding: 16px;
 }
 h1 {
     font-size: 3rem;
@@ -33,17 +41,24 @@ h1 {
 
 #line {
     position: absolute;
-    border-top: 3px solid var(--green-active);
+    border-top: 5px solid var(--green-active);
     width: 90%;
     left: 0;
     right: 0;
     margin: auto;
-    top: 10px;
+    top: 0.5rem;
 }
 
 @media screen and (min-width: 1024px) {
     header {
         border-radius: 22px 22px 0 0;
+    }
+    h1 {
+        font-size: 5rem;
+    }
+    #line {
+        border-top: 6px solid var(--green-active);
+        top: 1.2rem;
     }
 }
 </style>
