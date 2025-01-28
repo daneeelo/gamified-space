@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import ReactiveHeader from '@/components/reactive-header.vue'
+import ReactiveHeader from '@/components/reactive-header/index.vue'
 </script>
 
 <template>

@@ -7,8 +7,10 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    LanguageSelector: typeof import('./src/components/language-selector.vue')['default']
-    ReactiveHeader: typeof import('./src/components/reactive-header.vue')['default']
+    DynamicText: typeof import('./src/components/reactive-header/dynamic-text.vue')['default']
+    Header: typeof import('./src/components/header/index.vue')['default']
+    LanguageSelector: typeof import('./src/components/reactive-header/language-selector.vue')['default']
+    ReactiveHeader: typeof import('./src/components/reactive-header/index.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
   }

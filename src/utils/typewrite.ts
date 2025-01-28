@@ -10,6 +10,14 @@ type TypewriteProps = {
             index: number | undefined
         }
     }
+    timing?: {
+        wait?: {
+            write?: number
+            delete?: number
+        }
+        write?: number
+        delete?: number
+    }
     timeout?: number
 }
 const keywords = [
@@ -25,7 +33,7 @@ const keywords = [
     { it: 'disciplinato', en: 'disciplined' },
     { it: 'creativo', en: 'creative' },
 ]
-export const typewriteEffect = ({ state, timeout }: TypewriteProps) => {
+export const typewriteEffect = ({ state, timing, timeout }: TypewriteProps) => {
     const languageStore = useLanguage()
     const typewriteStore = useTypewrite()
 
@@ -70,7 +78,7 @@ export const typewriteEffect = ({ state, timeout }: TypewriteProps) => {
                         writingLoop()
                         resolve
                     },
-                    shouldWrite ? 2000 : 1000,
+                    shouldWrite ? (timing?.wait?.write ?? 2000) : (timing?.wait?.delete ?? 1000),
                 )
             })
             return
@@ -78,41 +86,47 @@ export const typewriteEffect = ({ state, timeout }: TypewriteProps) => {
 
         if (!shouldWrite.value) {
             new Promise((resolve) => {
-                timeout = setTimeout(() => {
-                    const newWordState = state.currentWord.substring(
-                        0,
-                        state.currentWord.length - 2,
-                    )
-                    state.currentWord = newWordState
-                    const isWordDeleted = state.currentWord.length === 0
+                timeout = setTimeout(
+                    () => {
+                        const newWordState = state.currentWord.substring(
+                            0,
+                            state.currentWord.length - 2,
+                        )
+                        state.currentWord = newWordState
+                        const isWordDeleted = state.currentWord.length === 0
 
-                    if (isWordDeleted) {
-                        typewriteStore.toggleShouldWait()
-                    }
-                    resolve
-                    clearTimeout(timeout)
-                    writingLoop()
-                }, Math.random() * 130)
+                        if (isWordDeleted) {
+                            typewriteStore.toggleShouldWait()
+                        }
+                        resolve
+                        clearTimeout(timeout)
+                        writingLoop()
+                    },
+                    Math.random() * (timing?.delete ?? 130),
+                )
             })
             return
         }
 
         new Promise((resolve) => {
-            timeout = setTimeout(() => {
-                const newWordState =
-                    state.currentWord +
-                    (state?.referenceWord?.chars?.[state?.currentWord?.length] ?? '')
-                state.currentWord = newWordState
-                const isWordCompleted =
-                    state.currentWord.length === state.referenceWord.chars.length
+            timeout = setTimeout(
+                () => {
+                    const newWordState =
+                        state.currentWord +
+                        (state?.referenceWord?.chars?.[state?.currentWord?.length] ?? '')
+                    state.currentWord = newWordState
+                    const isWordCompleted =
+                        state.currentWord.length === state.referenceWord.chars.length
 
-                if (isWordCompleted) {
-                    typewriteStore.toggleShouldWait()
-                }
-                resolve
-                clearTimeout(timeout)
-                writingLoop()
-            }, Math.random() * 190)
+                    if (isWordCompleted) {
+                        typewriteStore.toggleShouldWait()
+                    }
+                    resolve
+                    clearTimeout(timeout)
+                    writingLoop()
+                },
+                Math.random() * (timing?.write ?? 190),
+            )
         })
     }
     writingLoop()

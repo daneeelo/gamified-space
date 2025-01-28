@@ -13,6 +13,8 @@
 
     --text-light: var(--black);
     --text-dark: var(--white);
+    --green-active: #b3e9c7;
+    --purple-active: #ab47d9;
 }
 
 /* semantic color variables for this project */

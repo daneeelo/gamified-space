@@ -1,11 +1,6 @@
 <script lang="ts" setup>
 import { typewriteEffect } from '@/utils/typewrite'
 import { onMounted, onUnmounted, reactive } from 'vue'
-import LanguageSelector from './language-selector.vue'
-import { useTypewrite } from '@/stores/typewrite-store'
-
-const typewriteStore = useTypewrite()
-let timeout: number | undefined
 
 const headerText = reactive<{
     currentWord: string
@@ -18,8 +13,14 @@ const headerText = reactive<{
     referenceWord: { chars: [], index: undefined },
 })
 
+let timeout: number | undefined
+
 onMounted(() => {
-    typewriteEffect({ state: headerText, timeout })
+    typewriteEffect({
+        state: headerText,
+        timeout,
+        timing: { write: 110, delete: 80, wait: { write: 1000, delete: 700 } },
+    })
 })
 
 onUnmounted(() => {
@@ -28,40 +29,38 @@ onUnmounted(() => {
 </script>
 
 <template>
-    <header>
-        <div id="typewriter">
-            <h1 id="text" class="header-text">{{ headerText.currentWord }}</h1>
-            <h1 id="caret" class="header-text">|</h1>
-        </div>
-        <LanguageSelector />
-    </header>
+    <div id="cli-cmd">
+        <h1 id="usr">@dev ></h1>
+        <h1 id="text" class="header-text">{{ headerText.currentWord }}</h1>
+        <h1 id="caret" class="header-text">|</h1>
+    </div>
 </template>
 
 <style scoped>
-header {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-#typewriter {
+#cli-cmd {
     display: flex;
     width: 100%;
+    font-size: 2.1rem;
+    filter: blur(1.2px);
 }
 
-.header-text {
-    font-size: 2.1rem;
-    text-transform: capitalize;
-}
-#text {
-    color: #b3e9c7;
-    font-weight: 700;
+#usr {
+    text-shadow: var(--purple-active) 1px 0 10px;
+    margin-right: 1rem;
 }
 
 #caret {
-    color: #b3e9c7;
+    text-shadow: var(--purple-active) 1px 0 10px;
     font-weight: 300;
     animation: caretAnimation 1s infinite;
+}
+
+.header-text {
+    text-shadow: #7bde92 1px 0 10px;
+}
+#text {
+    color: var(--green-active);
+    font-weight: 400;
 }
 
 @media screen and (min-width: 800px) {
@@ -69,7 +68,6 @@ header {
         font-size: 4rem;
     }
 }
-
 @keyframes caretAnimation {
     0% {
         opacity: 0;
