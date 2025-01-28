@@ -29,8 +29,11 @@ header {
     justify-content: space-between;
     align-items: center;
 }
+#bottom-header {
+    margin-top: 0.5rem;
+}
 h1 {
-    font-size: 3rem;
+    font-size: 2.6rem;
     filter: blur(1px);
     text-shadow: var(--purple-active) 1px 0 10px;
     margin-right: 0.4rem;

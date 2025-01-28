@@ -55,7 +55,7 @@ onUpdated(() => {
     border-radius: 22px;
     padding: 6px;
     outline: inset 4px solid var(--black);
-    box-shadow: 0 0 10px 1px var(--black-mute);
+    box-shadow: 0 0 10px 1px var(--black-pure);
 }
 .pill {
     width: 50px;
