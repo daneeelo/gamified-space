@@ -25,7 +25,7 @@ const keywords = [
     { it: 'proattivo', en: 'proactive' },
     { it: 'collaborativo', en: 'collaborative' },
     { it: 'responsabile', en: 'responsible' },
-    { it: 'adattabile', en: 'adaptable' },
+    { it: 'flessibile', en: 'adaptable' },
     { it: 'paziente', en: 'patient' },
     { it: 'comunicativo', en: 'communicative' },
     { it: 'analitico', en: 'analytical' },
@@ -45,13 +45,14 @@ export const typewriteEffect = ({ state, timing, timeout }: TypewriteProps) => {
         return Number((Math.random() * maxIndex).toFixed(0))
     }
 
+    let shouldChangeWord = true
+
     const selectWord = () => {
         let newIndex = generateRandomIndex(keywords.length - 1)
 
         if (newIndex === state.referenceWord.index) {
             newIndex++
         }
-
         return {
             chars: keywords[newIndex][language.value.includes('it') ? 'it' : 'en'].split(''),
             index: newIndex,
@@ -60,10 +61,10 @@ export const typewriteEffect = ({ state, timing, timeout }: TypewriteProps) => {
 
     const writingLoop = async () => {
         let selectedWord = state.referenceWord
-        const isWordEqual = state.currentWord === state.referenceWord.chars.join('')
 
-        if (isWordEqual) {
+        if (shouldChangeWord) {
             selectedWord = selectWord()
+            shouldChangeWord = false
         }
         state.referenceWord.chars = selectedWord.chars
         state.referenceWord.index = selectedWord.index
@@ -97,6 +98,7 @@ export const typewriteEffect = ({ state, timing, timeout }: TypewriteProps) => {
 
                         if (isWordDeleted) {
                             typewriteStore.toggleShouldWait()
+                            shouldChangeWord = true
                         }
                         resolve
                         clearTimeout(timeout)
