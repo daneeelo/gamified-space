@@ -51,7 +51,12 @@ export const typewriteEffect = ({ state, timing, timeout }: TypewriteProps) => {
         let newIndex = generateRandomIndex(keywords.length - 1)
 
         if (newIndex === state.referenceWord.index) {
-            newIndex++
+            // set array boundary
+            if (newIndex < keywords.length - 2) {
+                newIndex++
+            } else {
+                newIndex--
+            }
         }
         return {
             chars: keywords[newIndex][language.value.includes('it') ? 'it' : 'en'].split(''),
