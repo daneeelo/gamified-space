@@ -1,9 +1,9 @@
 <script setup lang="ts">
-import { useLanguage } from '../../stores/language-store'
+import { useLanguage } from '../../../stores/language-store'
 import { SelectButton, Image } from 'primevue'
 import { onUpdated, ref } from 'vue'
-import Italian from '../icons/ita.svg'
-import English from '../icons/eng.svg'
+import Italian from '../../assets/icons/ita.svg'
+import English from '../../assets/icons/eng.svg'
 import { storeToRefs } from 'pinia'
 import { useTypewrite } from '@/stores/typewrite-store'
 

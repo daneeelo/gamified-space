@@ -30,7 +30,7 @@ onUnmounted(() => {
 
 <template>
     <div id="cli-cmd">
-        <h1 id="usr">@dev ></h1>
+        <h1 id="usr">@dev></h1>
         <h1 id="text" class="header-text">{{ headerText.currentWord }}</h1>
         <h1 id="caret" class="header-text">|</h1>
     </div>
@@ -40,23 +40,22 @@ onUnmounted(() => {
 #cli-cmd {
     display: flex;
     width: 100%;
-    font-size: 2.1rem;
-    filter: blur(1.2px);
+    font-size: 0.9rem;
 }
 
 #usr {
     text-shadow: var(--purple-active) 1px 0 10px;
-    margin-right: 1rem;
+    margin-right: 0.4rem;
 }
 
 #caret {
     text-shadow: var(--purple-active) 1px 0 10px;
     font-weight: 300;
-    animation: caretAnimation 1s infinite;
+    animation: caretAnimation 750ms infinite;
 }
 
 .header-text {
-    text-shadow: #7bde92 1px 0 10px;
+    text-shadow: var(--green-active) 0 0 6px;
 }
 #text {
     color: var(--green-active);
@@ -64,8 +63,8 @@ onUnmounted(() => {
 }
 
 @media screen and (min-width: 800px) {
-    .header-text {
-        font-size: 4rem;
+    #cli-cmd {
+        font-size: 2rem;
     }
 }
 @keyframes caretAnimation {
