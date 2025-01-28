@@ -4,7 +4,6 @@
     width: 100%;
     max-width: 1280px;
     margin: 0 auto;
-    padding: 1rem;
 }
 
 body {
@@ -14,5 +13,8 @@ body {
 @media (min-width: 1024px) {
     body {
         display: flex;
+    }
+    #app {
+        padding: 1rem;
     }
 }

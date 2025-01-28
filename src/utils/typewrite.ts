@@ -1,6 +1,7 @@
 import { useLanguage } from '@/stores/language-store'
 import { useTypewrite } from '@/stores/typewrite-store'
 import { storeToRefs } from 'pinia'
+import { onUpdated } from 'vue'
 
 type TypewriteProps = {
     state: {
@@ -59,10 +60,9 @@ export const typewriteEffect = ({ state, timing, timeout }: TypewriteProps) => {
 
     const writingLoop = async () => {
         let selectedWord = state.referenceWord
-        const notSelectedWord = state.referenceWord.chars.length === 0
-        const isWordDeleted = state.currentWord.length === 0 && shouldWrite
+        const isWordEqual = state.currentWord === state.referenceWord.chars.join('')
 
-        if (notSelectedWord || isWordDeleted) {
+        if (isWordEqual) {
             selectedWord = selectWord()
         }
         state.referenceWord.chars = selectedWord.chars

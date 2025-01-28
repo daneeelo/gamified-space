@@ -2,8 +2,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap');
 
 :root {
-    --white: #fff0f3;
-
+    --white: #ebccd1;
+    --black-dark: #121212;
     --black: #1e1e1e;
     --black-mute: #424242;
     --black-active: #717171;
@@ -13,8 +13,8 @@
 
     --text-light: var(--black);
     --text-dark: var(--white);
-    --green-active: #b3e9c7;
-    --purple-active: #ab47d9;
+    --green-active: #32bc9b;
+    --purple-active: #cb15eb;
 }
 
 /* semantic color variables for this project */

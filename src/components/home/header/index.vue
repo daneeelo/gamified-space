@@ -18,6 +18,8 @@ header {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background-color: var(--black-dark);
+    padding: 16px;
 }
 h1 {
     font-size: 3rem;
@@ -37,5 +39,11 @@ h1 {
     right: 0;
     margin: auto;
     top: 10px;
+}
+
+@media screen and (min-width: 1024px) {
+    header {
+        border-radius: 22px 22px 0 0;
+    }
 }
 </style>
