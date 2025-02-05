@@ -1,6 +1,6 @@
 <script setup lang="ts">
-import ReactiveHeader from '@/components/home/header/index.vue'
-import Content from '@/components/home/content/index.vue'
+import ReactiveHeader from '@/components/home/header/header-comp.vue'
+import Content from '@/components/home/content/main-content.vue'
 </script>
 
 <template>

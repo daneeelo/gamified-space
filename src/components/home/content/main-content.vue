@@ -1,12 +1,12 @@
 <script setup lang="ts">
-import Content from './content.vue'
 import Simplebar from 'simplebar-vue'
 import 'simplebar-vue/dist/simplebar.min.css'
 </script>
 
 <template>
     <Simplebar class="content-wrapper">
-        <Content />
+        <div class="content-layout"></div>
+
     </Simplebar>
 </template>
 
@@ -23,6 +23,10 @@ import 'simplebar-vue/dist/simplebar.min.css'
 .simplebar-scrollbar:before {
     background-color: var(--white);
     box-shadow: 0 1px 8px 2px var(--purple-active);
+}
+
+.content-layout {
+    min-height: 2000px;
 }
 
 @media screen and (min-width: 1024px) {

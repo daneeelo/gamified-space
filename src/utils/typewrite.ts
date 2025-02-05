@@ -1,7 +1,7 @@
+/* eslint-disable @typescript-eslint/no-unused-expressions */
 import { useLanguage } from '@/stores/language-store'
 import { useTypewrite } from '@/stores/typewrite-store'
 import { storeToRefs } from 'pinia'
-import { onUpdated } from 'vue'
 
 type TypewriteProps = {
     state: {

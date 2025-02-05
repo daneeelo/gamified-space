@@ -7,15 +7,11 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    Content: typeof import('./src/components/home/content/content.vue')['default']
-    ContentSimplebar: typeof import('./src/components/home/content/content-simplebar.vue')['default']
     DynamicText: typeof import('./src/components/home/header/dynamic-text.vue')['default']
-    Example: typeof import('./src/components/home/content/example.vue')['default']
-    Header: typeof import('./src/components/home/header/index.vue')['default']
+    HeaderComp: typeof import('./src/components/home/header/header-comp.vue')['default']
     LanguageSelector: typeof import('./src/components/home/header/language-selector.vue')['default']
-    ReactiveHeader: typeof import('./src/components/reactive-header/index.vue')['default']
+    MainContent: typeof import('./src/components/home/content/main-content.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-    Tech: typeof import('./src/components/tech/index.vue')['default']
   }
 }
