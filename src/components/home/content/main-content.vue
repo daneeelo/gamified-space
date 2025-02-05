@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import Simplebar from 'simplebar-vue'
 import 'simplebar-vue/dist/simplebar.min.css'
+import WorkInProgress from './work-in-progress.vue'
 </script>
 
 <template>
     <Simplebar class="content-wrapper">
-        <div class="content-layout"></div>
-
+        <div class="content-layout">
+            <WorkInProgress />
+        </div>
     </Simplebar>
 </template>
 
